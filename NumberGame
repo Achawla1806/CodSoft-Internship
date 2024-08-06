@@ -1,0 +1,42 @@
+import java.util.*;
+import java.util.random.*;
+public class NumberGame {
+	public boolean Guess(int a, int b) {
+		if(a==b){
+			System.out.println("Correct");
+			return true;
+		}
+		else if(a<b) {
+			System.out.println("Too High");
+			return false;
+		}
+		else {
+			System.out.println("Too Low");
+			return false;
+		}
+	}
+	public static void main(String[] args) {
+		Random rand = new Random();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Guess the number between 1-100. You will get 3 tries");
+		int i=1;
+		int generated_number=rand.nextInt(1,100);
+		boolean flag=false;
+		while(i<=3) {
+			int user_number= sc.nextInt();
+			NumberGame ng=new NumberGame();
+			flag=ng.Guess(generated_number,user_number);
+			i++;
+			if(flag==true) {
+				break;
+			}
+		}
+		System.out.println("Number:"+generated_number);
+		System.out.println("Game Over");
+		sc.close();
+		
+		
+		
+	}
+
+}
